@@ -1,0 +1,84 @@
+body{
+    font-size: 20px;
+    position: center;
+    background: url(back.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#txt{
+
+}
+
+.txt {
+    text-align: center;
+    font-family: monospace ;
+    font-size: 30px;
+}
+
+
+button{
+  margin:auto;
+  display:block;
+}
+
+button{
+  padding:16px 32px;
+  font-family:helvetica;
+  font-size:16px;
+  font-weight:100;
+  color:#fff;
+  background: #587286;
+  border:0;
+  font-weight:100;
+}
+button:hover{
+  background: #3B5C76;
+}
+
+.btn{
+    width: 150px;
+    height: 80px;
+    padding:16px 32px;
+  font-family:helvetica;
+  font-size:16px;
+  font-weight:100;
+  color:#fff;
+  background: #587286;
+  border:0;
+  font-weight:100;
+  position:relative;
+  margin-top:40%;
+
+}
+
+.car1 {
+    position: relative;
+  top: 0;
+  left: 0;
+
+}
+
+.car2 {
+  position: relative;
+  top: 0;
+  left: 0;
+
+}
+
+.cars{
+
+   position: relative;
+  top: -100px;
+  left: 20px;
+  right: 70px;
+}
+
+
+div {
+    text-align: center;
+}
+
+ 
