@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./modal.css">
+</head>
+<body>
+
+<a href="#openModal">Open Modal</a>
+
+<div id="openModal" class="modalDialog">
+    <div>   
+
+            <h2>Congratulations .......</h2>
+
+        <p id="message" >You have finished this level.</p>
+        <p>we would love to add some text and images here</p>
+        <button id="next" class="next" type="button">Next level</button>
+    
+    </div>
+</div>
+
+
+<div id="counter">
+    <div id="inner">
+        <p id="timer">6</p>
+    </div>
+</div>
+<script type="text/javascript">
+var modal = document.getElementsByClassName('modalDialog')[0];
+// console.log(modal);
+// document.getElementsByClassName('modalDialog')[0].style.opacity='1';
+window.addEventListener('click',function (event) {
+    modal.style.opacity=1;
+});
+var counter=0;
+var timer = document.getElementById('timer');
+//we want here to set the inteerval in a function in order to use it again in the level 2
+var counterInterval='';
+counterInterval=window.setInterval(function (event) {
+	console.log(timer);
+	if(parseInt(timer.innerHTML) < 20){
+		timer.innerHTML=counter++;
+	}
+	else{
+		modal.style.opacity='1';
+	}
+} , 1000);
+</script>
+
+</body>
+</html>
