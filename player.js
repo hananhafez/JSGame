@@ -3,11 +3,15 @@ var player = function  (name) {
 	var src , carX;
 	this.name = name;
 
+
+	this.src = src;
+	this.carX = carX;
+
 	Object.defineProperty(this, 'src', {configurable:true,
 		enumerable:true,
 
 		set:function (n) {
-			src = n;	
+			src = n;
 		},
 
 		get:function () {
@@ -18,7 +22,7 @@ var player = function  (name) {
 	Object.defineProperty(this, 'carX', {configurable:true,
 		enumerable:true,
 		set:function (n) {
-			carX = n;	
+			carX = n;
 		},
 		get:function () {
 			return this.carX;
@@ -29,22 +33,20 @@ var player = function  (name) {
 			var car1 = window.getElementById('car1');
 			case 37:
 				//var car1 = window.getElementById('car1');
-				
+
 				car1.style.marginLeft=parseInt(car1.style.marginLeft) - 5 + 'px';
-				
+
 				break;
 			case 39:
 				//var car1 = window.getElementById('car1');
-				
+
 				car1.style.marginLeft=parseInt(car1.style.marginLeft) - 5 + 'px';
-				
+
 				break;
 		}
-		
+
 
 	}
-	this.src = src;
-	this.carX = carX;
+
 
 };
-
