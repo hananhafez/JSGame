@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css" media="screen">
+
+	#car1{
+		position: absolute;
+		background-size: contain;
+		
+	}
+	#road{
+		width:500px;
+		height:623px;
+		margin:0 auto;
+		background-size: cover;
+	}
+	#player{
+	max-height: 100%;
+    	max-width: 100%;
+	}
+	#selectionPage
+	{
+	position: absolute;
+	width:100%;
+	height:100%;
+   	 background: url(../images/back.jpg) no-repeat center ;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	}
+	button
+	{
+		margin-left: 30%;
+   		 margin-top: 0%;
+	}
+	#cars{ margin-top: 10%;}
+	span
+	{
+	margin-left: 15%;
+	}
+	</style>
+</head>
+<body >
+	<audio autoplay ><source src="../sounds/racer.mp3"></audio>
+	<div id="selectionPage">
+		
+		<div id="cars"><span><img  src="../images/player1.png"  heigth="150" width="400"></span>
+		<span><img src="../images/player2.png" heigth="150" width="400"></span></div>
+		<button class="btn"> player 1</button>
+		<button class="btn"> player 2</button>
+	</div>
+	<div id="road" >
+		<div id="car1">
+		</div>
+	</div>
+
+
+
+<script src="../js/game.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>

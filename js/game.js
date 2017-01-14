@@ -1,11 +1,18 @@
+var selection;
+var imgs=["../images/player1-top.png","../images/player2-top.png"];
+var page =  document.getElementById("selectionPage");
+var cars =  document.getElementsByTagName("span");
+cars[0].addEventListener('click',function(e){cars[0].style.width="1000px"});
+
+
 var road = function ( src ) {
 	
 	var level;
 	this.src = src;
-	this.rightX=200;
-	this.rightY=200
-	this.leftX=800;
-	this.leftY=200;
+	this.rightX=145;
+	this.rightY=100
+	this.leftX=700;
+	this.leftY=175;
 
 	Object.defineProperty(this, 'level', {configurable:true,
 		enumerable:true,
@@ -22,6 +29,7 @@ var road = function ( src ) {
 
 	this.init = function () {
 		document.getElementById("road").style.backgroundImage="url("+this.src+")";
+		document.getElementById("road").style.backgroundSize="cover";
 	}
 	this.level = level;
 
@@ -59,18 +67,27 @@ var player = function  (name,container) {
 	this.move = function (event) {
 		switch (event.keyCode) {
 			case 37:
-				// this.container.style.marginLeft=parseInt(car1.style.marginLeft) - 5 + 'px';
-				this.container.style.left=parseInt(this.container.style.left)-3+"px";
-				break;
+				//if()
+				//{
+					this.container.style.left=parseInt(this.container.style.left)-5+"px";
+					console.log(this.container.style.left);
+					break;
+				//}
+				
 			case 39:
-				this.container.style.left=parseInt(this.container.style.left)+3+"px";
-				break;
+				//if()
+				//{
+					this.container.style.left=parseInt(this.container.style.left)+5+"px";
+					console.log(this.container.style.left);
+					break;		
+				//}
+				
 		}
 	}
 	this.src = src;
 	this.carX = carX;
 	this.display = function (w,h,x,y) {
-		container.style.backgroundImage="url("+this.src+")";
+		container.style.backgroundImage="url("+this.src+")" ;
 		
 		container.style.width=w+"px";
 		container.style.height=h+"px";
@@ -89,14 +106,34 @@ var player = function  (name,container) {
 var game = function  () {
 	this.start= function () {
 		var x = new player('khaled gamal',document.getElementById('car1'));
-		x.src="car1.png";
-		x.display(150,150,50,50);
+		x.src=selection;
+		x.display(100,168,690,20);
 		document.addEventListener('keydown', function(e){x.move(e)}, false);	
-		var rood = new road("mainroad.gif");
+		var rood = new road("../images/mainroad.gif");
 		rood.init();
 	}
 }
 
+page.addEventListener('click',function(e){
 
-var s = new game();
-s.start();
+    if(e.target.matches('button')){
+        choise=e.target.innerHTML;
+	choise=choise.trim();
+	console.log("choice"+choise);
+        switch (choise){
+		case "player 1":
+		selection=imgs[0];
+		break;
+		case "player 2":
+		selection=imgs[1];
+		break;
+		}
+	
+	console.log("select :"+selection);
+	page.remove();
+	document.body.style.backgroundImage="url('../images/sand.jpg')";
+	var s = new game();
+	s.start();
+	 } 
+});
+
