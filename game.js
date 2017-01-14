@@ -178,11 +178,14 @@ var game = function  () {
 		var rood = new road("mainroad.gif");
 		rood.init();
 		var carw= new movingCar('car4.png',50,75,150,0);
-    var car2= new movingCar('car1.png',120,75,300,0);
+        var car2= new movingCar('car1.png',120,75,300,0);
+		var car3= new movingCar('enamy.png',60,90,450,0);
+		car3.appendImg("road");
 		car2.appendImg("road");
-	 carw.appendImg("road");
-	 setInterval(carw.movecars,100,carw,5);
-   setInterval(car2.movecars,60,car2,5);
+	    carw.appendImg("road");
+	    setInterval(car3.movecars,80,car3,5);
+		setInterval(carw.movecars,100,carw,5);
+        setInterval(car2.movecars,60,car2,5);
 	
 	}
 }
