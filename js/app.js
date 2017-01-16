@@ -1,3 +1,8 @@
+var counterInterval='';
+var genrate ;
+var move ;
+
+
 var Defaults={
     road: {
         width: 545,
@@ -102,13 +107,13 @@ var Player=function (name,width,height,x,y,src) {
             case 37:
                 if(x>minx+20){
                     this.container.style.left=parseInt(this.container.style.left)-10+"px";
-                    this.x-=20
+                    this.x-=35
                 }
                 break;
             case 39:
                 if(x<maxx-20){
                     this.container.style.left=parseInt(this.container.style.left)+10+"px";
-                    this.x+=20
+                    this.x+=35
                 }
                 break;
         }
@@ -117,30 +122,14 @@ var Player=function (name,width,height,x,y,src) {
         if(this.isHit){
             clearInterval(genrate);
             clearInterval(move);
-            var lose=document.createElement("div");
-            var losetext=document.createElement("h1");
-            losetext.textContent="YOU LOSE";
-            lose.classList.add("lose");
-            lose.appendChild(losetext);
-            document.body.appendChild(lose);
+            
 
             var modal = document.getElementsByClassName('modalDialog')[0];
-window.addEventListener('click',function (event) {
-    modal.style.opacity=1;
-});
-var counter=0;
-var timer = document.getElementById('timer');
-var counterInterval='';
-counterInterval=window.setInterval(function (event) {
-    console.log(timer);
-    if(parseInt(timer.innerHTML) < 20){
-        timer.innerHTML=counter++;
-    }
-    else{
-        modal.style.opacity='1';
-    }
-} , 1000);
-
+            var message = document.getElementById('message');
+            var next = document.getElementById('good');
+            next.style.visibility = 'hidden';
+            message.innerHTML="Sorry 1!!!!!!!!!<br /> You have lost ";
+            modal.style.opacity='1';
 
         }
     }
@@ -205,28 +194,32 @@ window.addEventListener('click',function(e){
 
         if(choise==intro[1]){
             flag=1;
-            console.log(intro[1]);
             Defaults.player.src = imgs[1];
-            console.log(flag);
+            page.remove();
             initGame ();
         }else if(choise==intro[0]){
             flag=1;
-            console.log(intro[0]);
-            console.log(flag);
             Defaults.player.src = imgs[0];
+            page.remove();
             initGame ();
         }
-    page.remove();  
 
+      
 
      } 
 });
 
-var genrate ;
-var move ;
+var bad = document.getElementById('bad');
+            bad.addEventListener('click',function (event) {
+                location.reload();
+            });
+var audio = document.getElementById('audio');
+audio.play();
+
 function initGame () {
 
-    document.body.style.backgroundImage="url('./images/back3.jpg')";
+    document.body.style.backgroundImage="url('./images/back3.png')";
+    console.log(document.body.style.backgroundImage);
     var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
     var road1=new Road("road1",Defaults.road.width,Defaults.road.height,Defaults.road.src,player1);
     road1.draw();
@@ -237,4 +230,22 @@ function initGame () {
         road1.updatePosition();
         player1.checkLose();
     },40);
+
 }
+// var counter=0;
+// var timer = document.getElementById('timer');
+// if (counterInterval !='') {
+// var counterDiv = document.getElementById('counter').style.visibility = 'visible';
+// }
+// counterInterval=window.setInterval(function (event) {
+//     console.log(timer);
+//     if(parseInt(timer.innerHTML) < 20){
+//         timer.innerHTML=counter++;
+//     }
+//     else{
+//         modal.style.opacity='1';
+//     }
+// } , 1000);
+
+///////////////////////////////////////////////////////////////
+

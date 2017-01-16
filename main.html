@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/game.css">
     <title>Game</title>
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
     <style type="text/css" media="screen">
 		#selectionPage
     {
@@ -59,6 +60,26 @@
 	       <img src="./images/lvls.png" alt="levels">
 	</div>
 </div>
+
+
+<div id="openModal" class="modalDialog">
+    <div>   
+
+        <h2 id="message" > Congratulations ....... <br /> You have finished this level.</h2>
+        <button id="good" class="next" type="button">Next level</button>
+        <button id="bad" class="next" type="button">Refresh</button>
+    
+    </div>
+</div>
+
+
+<div id="counter">
+    <div id="inner">
+        <p id="timer">0</p>
+    </div>
+</div>
+
+<audio id="audio" src="sounds/racer.mp3" autobuffer autoloop loop controls hidden="true" ></audio>
 
 <script src="js/app.js"></script>
 
