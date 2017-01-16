@@ -114,16 +114,15 @@ var Player=function (name,width,height,x,y,src) {
         }
     }
     this.checkLose=function () {
-        console.log(genrate)
         if(this.isHit){
             clearInterval(genrate);
             clearInterval(move);
-            // var lose=document.createElement("div");
-            // var losetext=document.createElement("h1");
-            // losetext.textContent="YOU LOSE";
-            // lose.classList.add("lose");
-            // lose.appendChild(losetext);
-            // document.body.appendChild(lose);
+            var lose=document.createElement("div");
+            var losetext=document.createElement("h1");
+            losetext.textContent="YOU LOSE";
+            lose.classList.add("lose");
+            lose.appendChild(losetext);
+            document.body.appendChild(lose);
 
             var modal = document.getElementsByClassName('modalDialog')[0];
 window.addEventListener('click',function (event) {
@@ -200,10 +199,9 @@ var cars =  document.getElementsByClassName("player");
 var page = document.getElementById('mainContainer');
 
 window.addEventListener('click',function(e){
-    console.log(e.target);
+    
     if(e.target.matches('img')){
-        choise=e.target.getAttribute('src');
-        console.log(choise);    
+        choise=e.target.getAttribute('src'); 
         if(choise==intro[1]){
 
             Defaults.player.src = imgs[1];
@@ -213,23 +211,20 @@ window.addEventListener('click',function(e){
     page.remove();
 
 document.body.style.backgroundImage="url('./images/back3.jpg')";
-
-console.log(document.getElementsByTagName('body')[0].innerHTML)
-console.log(document.body.style.backgroundImage);
-
     
-var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
 
-var road1=new Road("road1",Defaults.road.width,Defaults.road.height,Defaults.road.src,player1);
-road1.draw();
-document.addEventListener('keydown', function(e){player1.move(e,0,road1.width-player1.width)}, false);
-var genrate=setInterval(function(){road1.generateCar()},600);
-var move=setInterval(function(){
-    road1.updatePosition();
-    player1.checkLose();
-},40);
 
      } 
 });
 
-        console.log(genrate)
+
+var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
+var road1=new Road("road1",Defaults.road.width,Defaults.road.height,Defaults.road.src,player1);
+road1.draw();
+document.addEventListener('keydown', function(e){player1.move(e,0,road1.width-player1.width)}, false);
+var genrate=setInterval(function(){road1.generateCar()},600);
+console.log(genrate);
+var move=setInterval(function(){
+    road1.updatePosition();
+    player1.checkLose();
+},40);
