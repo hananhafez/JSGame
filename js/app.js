@@ -197,34 +197,44 @@ var imgs=["./images/player1-top.png","./images/player2-top.png"];
 var intro=["./images/player1-intro.png","./images/player2-intro.png"];
 var cars =  document.getElementsByClassName("player");
 var page = document.getElementById('mainContainer');
-
+var flag = 0;
 window.addEventListener('click',function(e){
-    
+
     if(e.target.matches('img')){
         choise=e.target.getAttribute('src'); 
+
         if(choise==intro[1]){
-
+            flag=1;
+            console.log(intro[1]);
             Defaults.player.src = imgs[1];
+            console.log(flag);
+            initGame ();
         }else if(choise==intro[0]){
+            flag=1;
+            console.log(intro[0]);
+            console.log(flag);
             Defaults.player.src = imgs[0];
+            initGame ();
         }
-    page.remove();
-
-document.body.style.backgroundImage="url('./images/back3.jpg')";
-    
+    page.remove();  
 
 
      } 
 });
 
+var genrate ;
+var move ;
+function initGame () {
 
-var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
-var road1=new Road("road1",Defaults.road.width,Defaults.road.height,Defaults.road.src,player1);
-road1.draw();
-document.addEventListener('keydown', function(e){player1.move(e,0,road1.width-player1.width)}, false);
-var genrate=setInterval(function(){road1.generateCar()},600);
-console.log(genrate);
-var move=setInterval(function(){
-    road1.updatePosition();
-    player1.checkLose();
-},40);
+    document.body.style.backgroundImage="url('./images/back3.jpg')";
+    var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
+    var road1=new Road("road1",Defaults.road.width,Defaults.road.height,Defaults.road.src,player1);
+    road1.draw();
+    document.addEventListener('keydown', function(e){player1.move(e,0,road1.width-player1.width)}, false);
+    genrate=setInterval(function(){road1.generateCar()},600);
+    console.log(genrate);
+    move=setInterval(function(){
+        road1.updatePosition();
+        player1.checkLose();
+    },40);
+}
