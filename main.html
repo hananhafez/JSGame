@@ -67,9 +67,6 @@
 var imgs=["./images/player1-top.png","./images/player2-top.png"];
 var intro=["./images/player1-intro.png","./images/player2-intro.png"];
 var cars =  document.getElementsByClassName("player");
-// window.addEventListener('click',function (event) {
-	// event.target.matches('img')?console.log(event.target.getAttribute('src')):console.log('eror loading');
-// })
 var page = document.getElementById('mainContainer');
 
 window.addEventListener('click',function(e){
@@ -84,6 +81,7 @@ window.addEventListener('click',function(e){
         	Defaults.player.src = imgs[0];
         }
     page.remove();
+
 	document.body.style.backgroundImage="url('./images/back3.jpg')";
 
 
