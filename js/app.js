@@ -117,12 +117,30 @@ var Player=function (name,width,height,x,y,src) {
         if(this.isHit){
             clearInterval(genrate);
             clearInterval(move);
-            var lose=document.createElement("div");
-            var losetext=document.createElement("h1");
-            losetext.textContent="YOU LOSE";
-            lose.classList.add("lose");
-            lose.appendChild(losetext);
-            document.body.appendChild(lose);
+            // var lose=document.createElement("div");
+            // var losetext=document.createElement("h1");
+            // losetext.textContent="YOU LOSE";
+            // lose.classList.add("lose");
+            // lose.appendChild(losetext);
+            // document.body.appendChild(lose);
+
+            var modal = document.getElementsByClassName('modalDialog')[0];
+window.addEventListener('click',function (event) {
+    modal.style.opacity=1;
+});
+var counter=0;
+var timer = document.getElementById('timer');
+var counterInterval='';
+counterInterval=window.setInterval(function (event) {
+    console.log(timer);
+    if(parseInt(timer.innerHTML) < 20){
+        timer.innerHTML=counter++;
+    }
+    else{
+        modal.style.opacity='1';
+    }
+} , 1000);
+
 
         }
     }
@@ -173,12 +191,3 @@ var Car=function (name,width,height,x,y,src) {
         }
     }
 }
-var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
-var road1=new Road("road1",Defaults.road.width,Defaults.road.height,Defaults.road.src,player1);
-road1.draw();
-document.addEventListener('keydown', function(e){player1.move(e,0,road1.width-player1.width)}, false);
-var genrate=setInterval(function(){road1.generateCar()},600);
-var move=setInterval(function(){
-    road1.updatePosition();
-    player1.checkLose();
-},40);

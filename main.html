@@ -1,18 +1,85 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;padding:0">
 <head>
-	<title>JS Game</title>
-	<style media="screen">
-	#body{background-image: url(./images/back2.jpg);
-background-repeat: no-repeat;
-background-size: cover;}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/game.css">
+    <title>Game</title>
+    <style type="text/css" media="screen">
 
-	</style>
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
 </head>
-<body id="body">
+<body  style="height: 100%;padding:0;margin:0">
 
-<div class="txt" >
-</div>
+<!-- <div id="mainContainer"> -->
+	
 
+	<div id="selectionPage">
+
+	</div>	
+
+	<div>
+		
+
+		<span id="ply1" class="player">
+			<img  src="./images/player1-intro.png"  heigth="150" width="400">
+		</span>
+		
+		<span id="ply2" class="player">
+			<img src="./images/player2-intro.png" heigth="150" width="400">
+		</span>
+
+	</div>
+
+
+	<div id="padges">
+	       <img src="./images/lvls.png" alt="levels">
+	</div>
+<!-- </div> -->
+
+
+<script>
+
+var imgs=["./images/player1-top.png","./images/player2-top.png"];
+var intro=["./images/player1-intro.png","./images/player2-intro.png"];
+var cars =  document.getElementsByClassName("player");
+// window.addEventListener('click',function (event) {
+	// event.target.matches('img')?console.log(event.target.getAttribute('src')):console.log('eror loading');
+// })
+var page = document.getElementsByTagName('body');
+
+window.addEventListener('click',function(e){
+	console.log(e.target);
+    if(e.target.matches('img')){
+        choise=e.target.getAttribute('src');
+        console.log(choise);	
+        if(choise==intro[1]){
+
+        	Defaults.player.src = imgs[1];
+        }else if(choise==intro[0]){
+        	Defaults.player.src = imgs[0];
+        }
+    page.innerHTML='';
+	document.body.style.backgroundImage="url('./images/back3.jpg')";
+
+
+
+	
+	var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
+
+var road1=new Road("road1",Defaults.road.width,Defaults.road.height,Defaults.road.src,player1);
+road1.draw();
+document.addEventListener('keydown', function(e){player1.move(e,0,road1.width-player1.width)}, false);
+var genrate=setInterval(function(){road1.generateCar()},600);
+var move=setInterval(function(){
+    road1.updatePosition();
+    player1.checkLose();
+},40);
+
+	 } 
+});
+
+</script>
+<script src="js/app.js"></script>
 </body>
 </html>
