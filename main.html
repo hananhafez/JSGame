@@ -31,7 +31,6 @@
     padding-left: 450px;
     }
     </style>
-    <link rel="stylesheet" type="text/css" href="css/modal.css">
 </head>
 <body  style="height: 100%;padding:0;margin:0">
 
@@ -61,7 +60,7 @@
 	</div>
 </div>
 
-
+<script src="js/app.js"></script>
 <script>
 
 var imgs=["./images/player1-top.png","./images/player2-top.png"];
@@ -82,12 +81,13 @@ window.addEventListener('click',function(e){
         }
     page.remove();
 
-	document.body.style.backgroundImage="url('./images/back3.jpg')";
+document.body.style.backgroundImage="url('./images/back3.jpg')";
 
-
+console.log(document.getElementsByTagName('body')[0].innerHTML)
+console.log(document.body.style.backgroundImage);
 
 	
-	var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
+var player1=new Player("player1",Defaults.player.width,Defaults.player.height,Defaults.player.x,Defaults.player.y,Defaults.player.src);
 
 var road1=new Road("road1",Defaults.road.width,Defaults.road.height,Defaults.road.src,player1);
 road1.draw();
@@ -102,6 +102,6 @@ var move=setInterval(function(){
 });
 
 </script>
-<script src="js/app.js"></script>
+
 </body>
 </html>
