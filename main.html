@@ -5,13 +5,37 @@
     <link rel="stylesheet" href="css/game.css">
     <title>Game</title>
     <style type="text/css" media="screen">
-
+		#selectionPage
+    {
+    position: absolute;
+    width:100%;
+    height:100%;
+     background: url(./images/back.jpg) no-repeat center ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+    }
+    #ply1{
+        right: 15%;
+    }
+    #ply2{
+        left: 15%;
+    }
+    /*#cars{ margin-top: 10%;}*/
+    
+    #padges{
+        position: relative;
+    bottom: -440px;
+    padding-left: 450px;
+    }
     </style>
     <link rel="stylesheet" type="text/css" href="css/modal.css">
 </head>
 <body  style="height: 100%;padding:0;margin:0">
 
-<!-- <div id="mainContainer"> -->
+<div id="mainContainer">
 	
 
 	<div id="selectionPage">
@@ -35,7 +59,7 @@
 	<div id="padges">
 	       <img src="./images/lvls.png" alt="levels">
 	</div>
-<!-- </div> -->
+</div>
 
 
 <script>
@@ -46,7 +70,7 @@ var cars =  document.getElementsByClassName("player");
 // window.addEventListener('click',function (event) {
 	// event.target.matches('img')?console.log(event.target.getAttribute('src')):console.log('eror loading');
 // })
-var page = document.getElementsByTagName('body');
+var page = document.getElementById('mainContainer');
 
 window.addEventListener('click',function(e){
 	console.log(e.target);
@@ -59,7 +83,7 @@ window.addEventListener('click',function(e){
         }else if(choise==intro[0]){
         	Defaults.player.src = imgs[0];
         }
-    page.innerHTML='';
+    page.remove();
 	document.body.style.backgroundImage="url('./images/back3.jpg')";
 
 
