@@ -1,19 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" style="height: 100%;padding:0">
 <head>
-	<title>JS Game</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/game.css">
+    <title>Game</title>
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
+    <style type="text/css" media="screen">
+		#selectionPage
+    {
+    position: absolute;
+    width:100%;
+    height:100%;
+     background: url(./images/back.jpg) no-repeat center ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+    }
+    #ply1{
+        right: 15%;
+    }
+    #ply2{
+        left: 15%;
+    }
+    /*#cars{ margin-top: 10%;}*/
+    
+    #padges{
+        position: relative;
+    bottom: -440px;
+    padding-left: 450px;
+    }
+    </style>
 </head>
-<body >
+<body  style="height: 100%;padding:0;margin:0">
 
-<div class="txt">
-<p id="txt"> OUT RUN </p>
+<div id="mainContainer">
+	
+
+	<div id="selectionPage">
+
+	</div>	
+
+	<div>
+		
+
+		<span id="ply1" class="player">
+			<img  src="./images/player1-intro.png"  heigth="150" width="400">
+		</span>
+		
+		<span id="ply2" class="player">
+			<img src="./images/player2-intro.png" heigth="150" width="400">
+		</span>
+
+	</div>
+
+
+	<div id="padges">
+	       <img src="./images/lvls.png" alt="levels">
+	</div>
 </div>
 
-<div >
 
-<button onclick="window.location.href='start.html'"> START</button>
+<div id="openModal" class="modalDialog">
+    <div>   
+
+        <h2 id="message" > Congratulations ....... <br /> You have finished this level.</h2>
+        <button id="good" class="next" type="button">Next level</button>
+        <button id="bad" class="next" type="button">Refresh</button>
+    
+    </div>
 </div>
+
+
+<div id="counter">
+    <div id="inner">
+        <p id="timer">0</p>
+    </div>
+</div>
+
+<audio id="audio" src="sounds/racer.mp3" autobuffer autoloop loop controls hidden="true" ></audio>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
