@@ -55,7 +55,7 @@ var Road=function (name,width,height,src,player){
         road.classList.add("road");
         this.player.y=this.height-this.player.height-50;
         road.appendChild(this.player.draw());
-        document.body.appendChild(road);
+        document.body.insertBefore(road,document.getElementById("mainContainer"));
         this.container=road;
     }
     this.generateCar=function(){
@@ -103,17 +103,20 @@ var Player=function (name,width,height,x,y,src) {
     }
     this.move = function (event,minx,maxx) {
         var x=parseInt(this.container.style.left);
+        console.log(this.container.style.left);
         switch (event.keyCode) {
             case 37:
                 if(x>minx+20){
-                    this.container.style.left=parseInt(this.container.style.left)-10+"px";
-                    this.x-=35
+                    this.container.style.left=parseInt(this.container.style.left)-25+"px";
+                  this.x-=25
+
                 }
                 break;
             case 39:
                 if(x<maxx-20){
-                    this.container.style.left=parseInt(this.container.style.left)+10+"px";
-                    this.x+=35
+                    this.container.style.left=parseInt(this.container.style.left)+25+"px";
+                this.x+=25;
+
                 }
                 break;
         }
@@ -122,7 +125,7 @@ var Player=function (name,width,height,x,y,src) {
         if(this.isHit){
             clearInterval(genrate);
             clearInterval(move);
-            
+
 
             var modal = document.getElementsByClassName('modalDialog')[0];
             var message = document.getElementById('message');
@@ -172,6 +175,7 @@ var Car=function (name,width,height,x,y,src) {
         var myp={x:this.x,y:this.y};
         var mypdownleftmost={x:myp.x , y:myp.y+this.height}
         var myprightmost={x:myp.x+ this.width, y:myp.y+this.height}
+        console.log("-------------"+player.x );
         if(this.y+this.height >=player.y ){
             if( this.x >= player.x && this.x<=player.x+player.width )
                 return true;
@@ -190,7 +194,7 @@ var flag = 0;
 window.addEventListener('click',function(e){
 
     if(e.target.matches('img')){
-        choise=e.target.getAttribute('src'); 
+        choise=e.target.getAttribute('src');
 
         if(choise==intro[1]){
             flag=1;
@@ -204,15 +208,11 @@ window.addEventListener('click',function(e){
             initGame ();
         }
 
-      
 
-     } 
+
+     }
 });
 
-var bad = document.getElementById('bad');
-            bad.addEventListener('click',function (event) {
-                location.reload();
-            });
 var audio = document.getElementById('audio');
 audio.play();
 
@@ -248,4 +248,3 @@ function initGame () {
 // } , 1000);
 
 ///////////////////////////////////////////////////////////////
-

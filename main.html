@@ -25,7 +25,7 @@
         left: 15%;
     }
     /*#cars{ margin-top: 10%;}*/
-    
+
     #padges{
         position: relative;
     bottom: -440px;
@@ -36,19 +36,19 @@
 <body  style="height: 100%;padding:0;margin:0">
 
 <div id="mainContainer">
-	
+
 
 	<div id="selectionPage">
 
-	</div>	
+	</div>
 
 	<div>
-		
+
 
 		<span id="ply1" class="player">
 			<img  src="./images/player1-intro.png"  heigth="150" width="400">
 		</span>
-		
+
 		<span id="ply2" class="player">
 			<img src="./images/player2-intro.png" heigth="150" width="400">
 		</span>
@@ -63,19 +63,12 @@
 
 
 <div id="openModal" class="modalDialog">
-    <div>   
+    <div>
 
         <h2 id="message" > Congratulations ....... <br /> You have finished this level.</h2>
         <button id="good" class="next" type="button">Next level</button>
-        <button id="bad" class="next" type="button">Refresh</button>
-    
-    </div>
-</div>
+        <button id="bad" class="next" type="button" onclick="location.reload();">Refresh</button>
 
-
-<div id="counter">
-    <div id="inner">
-        <p id="timer">0</p>
     </div>
 </div>
 
