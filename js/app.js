@@ -78,6 +78,16 @@ var Road=function (name,width,height,src,player){
             }
         }
     }
+   // this.winMassege=function()
+    //{
+      //  var msg = document.createElement("div");
+       // msg.style.width="100px";
+        //msg.style.height="100px";
+       // msg.style.backgroundImage="url('./images/lvl2.png')";
+         //   msg.style.backgroundSize="cover";
+        //this.container.appendChild(msg);
+
+    //};
 
 }
 var Player=function (name,width,height,x,y,src) {
@@ -126,11 +136,18 @@ var Player=function (name,width,height,x,y,src) {
             clearInterval(genrate);
             clearInterval(move);
 
+         //   var msg = document.createElement("div");
+         //   msg.style.backgroundImage="url('./images/lvl2.png')";
+         //   msg.style.width="100px";
+          //  msg.style.height="100px";
+           // msg.style.backgroundSize="cover";
 
-            var modal = document.getElementsByClassName('modalDialog')[0];
-            var message = document.getElementById('message');
+            //this.container.appendChild(msg);
+            console.log("crash");
+          var modal = document.getElementsByClassName('modalDialog')[0];
+           var message = document.getElementById('message');
             var next = document.getElementById('good');
-            next.style.visibility = 'hidden';
+          next.style.visibility = 'hidden';
             message.innerHTML="Sorry 1!!!!!!!!!<br /> You have lost ";
             modal.style.opacity='1';
 
@@ -176,7 +193,7 @@ var Car=function (name,width,height,x,y,src) {
         var mypdownleftmost={x:myp.x , y:myp.y+this.height}
         var myprightmost={x:myp.x+ this.width, y:myp.y+this.height}
         console.log("-------------"+player.x );
-        if(this.y+this.height >=player.y ){
+        if(this.y+this.height >=player.y && this.y+this.height <=player.y+player.height){
             if( this.x >= player.x && this.x<=player.x+player.width )
                 return true;
             if(this.x+this.width >=player.x && this.x + this.width <=player.x+player.width)
@@ -230,6 +247,8 @@ function initGame () {
         road1.updatePosition();
         player1.checkLose();
     },40);
+    //msg=setInterval(function(){road1.winMassege();},1000);
+
 
 }
 // var counter=0;
